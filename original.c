@@ -177,6 +177,7 @@ wait1Msec(3500); //possibly delete?
 autoIntake(2000,127);
 }
 
+
 task leftRightOne(){
 	clearLCDLine(0);
 	clearLCDLine(1);
@@ -190,9 +191,13 @@ task leftRightOne(){
 	//forward to the line that the bonus sack is on999/8
 	//turn(550,LEFT,40);
 	//swivel turn to pick up yellow sack
-	drive(.5 * clickspermeters, FORWARD, 100);
-	wait1Msec(600);
-	drive(.5 * clickspermeters, FORWARD, 100);
+	//driveTime(500,FORWARD,100);
+	//driveTime(500,BACKWARD,100);
+	drive(.35 * clickspermeters, FORWARD,100);
+	wait1msec(100);
+	drive(.15 * clickspermeters, FORWARD, 100);
+	wait1Msec(500);
+	drive(.45 * clickspermeters, FORWARD, 100); //.50 to .45
 	//forward to yellow sack
 	//turn to trough
 	wait1Msec(300);
@@ -201,21 +206,23 @@ task leftRightOne(){
 	swivel(310, RIGHT, 80);
 	drive(.2 * clickspermeters, FORWARD, 127);
 	//drive forward to goal
-	drive(.2 * clickspermeters, FORWARD, 127);
+	drive(.28 * clickspermeters, FORWARD, 127); //.20 to .23 to .26 to .28
 	wait1Msec(900);
 	driveTime(700, BACKWARD, 67);
 	//Let sacks out5
-  turn(550, LEFT, 80);
+  turn(650, LEFT, 80); //550 to 650
   armTime(1800,RAISE,127);
-  drive(.58 * clickspermeters, FORWARD, 60); //127 to 80 //.53 to .58
+  drive(.48 * clickspermeters, FORWARD, 60); //127 to 80 //.53 to .58 to .52 to .48
   autoIntake(2050, -127);
   wait1Msec(200);
   driveTime(700, BACKWARD, 95);
   //auton=false;
+  /*
 	if (auton == false){
 		turn(200,LEFT,60);
 		driveTime(2000, BACKWARD, 100);
 	}
+	*/
   }
 
 task leftRightTwo(){
@@ -578,7 +585,7 @@ void pre_auton(){
 
 task autonomous(){ //autonomous selection AUTOSELECT
 //switchup
- 	autonomousRight();/*
+ 	autonomousLeft();/*
  	if (auton = false){
  		autonomousRight()		//put first play here
  		while(nLCDButtons == 0){}
