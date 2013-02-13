@@ -193,6 +193,8 @@ task leftRightOne(){
 	//swivel turn to pick up yellow sack
 	//driveTime(500,FORWARD,100);
 	//driveTime(500,BACKWARD,100);
+	driveTime(500,FORWARD,100);
+	driveTime(500,BACKWARD,100);
 	drive(.35 * clickspermeters, FORWARD,100);
 	wait1msec(100);
 	drive(.15 * clickspermeters, FORWARD, 100);
@@ -212,7 +214,7 @@ task leftRightOne(){
 	//Let sacks out5
   turn(650, LEFT, 80); //550 to 650
   armTime(1800,RAISE,127);
-  drive(.48 * clickspermeters, FORWARD, 60); //127 to 80 //.53 to .58 to .52 to .48
+  drive(.51 * clickspermeters, FORWARD, 60); //127 to 80 //.53 to .58 to .52 to .48
   autoIntake(2050, -127);
   wait1Msec(200);
   driveTime(700, BACKWARD, 95);
@@ -226,7 +228,7 @@ task leftRightOne(){
   }
 
 task leftRightTwo(){
-	wait1Msec(1000); //1200
+	wait1Msec(2000); //1200 //2000
 	autoIntake(2100, 127); //3400 to 3000 to 2300 to 2100
 	wait1Msec(900);	 //1000 to 700 to 500
 	autoIntake(2200, 127); //2200
